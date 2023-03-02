@@ -28,12 +28,7 @@ class TarteaucitronGenerator < Rails::Generators::Base
   end
 
   def download_geocat
-
-    url = "https://geolite.maxmind.com/download/geoip/database/GeoLite2-Country.tar.gz"
-
-    get url, "db/GeoLite2-Country.tar.gz"
-
-    run "tar -xzf db/GeoLite2-Country.tar.gz --wildcards '*/GeoLite2-Country.mmdb' -O > db/GeoLite2-Country.mmdb && rm db/GeoLite2-Country.tar.gz"
+    get "https://git.io/GeoLite2-Country.mmdb", "db/GeoLite2-Country.mmdb"
   end
 
 end
