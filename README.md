@@ -57,7 +57,7 @@ Put this in your application layout or elsewhere
 ### Matamo (Piwik)
 
 ```ruby
-<%= tarteaucitron(:matomo => { id: "SITE_ID", url:"YOUR_MATOMO_URL"}) %>
+<%= tarteaucitron(matomocloud: { id: "SITE_ID", url: "YOUR_MATOMO_URL", customJSPath: "PATH_TO_YOUR_MATOMO_JS }) %>
 ```
 
 ### Google +
