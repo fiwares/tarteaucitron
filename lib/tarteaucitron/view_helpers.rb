@@ -65,6 +65,13 @@ module Tarteaucitron
           script += "(tarteaucitron.job = tarteaucitron.job || []).push('matomo');"
         end
 
+        if options["matomocloud"]
+          script += "tarteaucitron.user.matomoId = '#{options["matomocloud"]["id"]}';"
+          script += "tarteaucitron.user.matomoHost = '#{options["matomocloud"]["url"]}';"
+          script += "tarteaucitron.user.matomoCustomJSPath = '#{options["matomocloud"]["customJSPath"]}';"
+          script += "(tarteaucitron.job = tarteaucitron.job || []).push('matomocloud');"
+        end
+
         if options["facebook"]
           script += "(tarteaucitron.job = tarteaucitron.job || []).push('facebook');"
         end
