@@ -82,7 +82,7 @@ module Tarteaucitron
           script += "(tarteaucitron.job = tarteaucitron.job || []).push('typekit');"
         end
 
-        result += content_tag("script", script.html_safe)
+        result += content_tag("script", script.html_safe, data: { turbo_track: :reload }, defer: true)
 
         result.html_safe
       end
