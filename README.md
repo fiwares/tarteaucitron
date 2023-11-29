@@ -54,10 +54,10 @@ Put this in your application layout or elsewhere
 <%= tarteaucitron(:googlemaps => "YOUR_API_KEY") %>
 ```
 
-### Matamo (Piwik)
+### Matomo (Piwik)
 
 ```ruby
-<%= tarteaucitron(matomocloud: { id: "SITE_ID", url: "YOUR_MATOMO_URL", customJSPath: "PATH_TO_YOUR_MATOMO_JS }) %>
+<%= tarteaucitron(matomocloud: { id: "SITE_ID", url: "YOUR_MATOMO_URL", customJSPath: "PATH_TO_YOUR_MATOMO_JS" }) %>
 ```
 
 ### Google +
