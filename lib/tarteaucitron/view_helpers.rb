@@ -14,9 +14,9 @@ module Tarteaucitron
                     "highPrivacy"=> false,
                     "orientation"=> options[:orientation] || "top",
                     "adblocker"=> false,
-                    "showAlertSmall"=> true,
+                    "showAlertSmall"=> options[:showSmallAlert] || true,
                     "cookieslist"=> true,
-                    "removeCredit"=> false,
+                    "removeCredit"=> options[:removeCredit] || false,
                   }
 
         init_options = default
