@@ -25,6 +25,7 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency "geoip2_compat"
   spec.add_dependency "countries"
+  spec.add_dependency "iso3166-countries"
 
   spec.add_development_dependency "bundler", "~> 1.9"
   spec.add_development_dependency "rake", "~> 12.3.3"
