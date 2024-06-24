@@ -14,9 +14,9 @@ module Tarteaucitron
                     "highPrivacy"=> false,
                     "orientation"=> options[:orientation] || "top",
                     "adblocker"=> false,
-                    "showAlertSmall"=> true,
+                    "showAlertSmall"=> options[:showSmallAlert] || true,
                     "cookieslist"=> true,
-                    "removeCredit"=> false,
+                    "removeCredit"=> options[:removeCredit] || false,
                   }
 
         init_options = default
@@ -65,6 +65,13 @@ module Tarteaucitron
           script += "(tarteaucitron.job = tarteaucitron.job || []).push('matomo');"
         end
 
+        if options["matomocloud"]
+          script += "tarteaucitron.user.matomoId = '#{options["matomocloud"]["id"]}';"
+          script += "tarteaucitron.user.matomoHost = '#{options["matomocloud"]["url"]}';"
+          script += "tarteaucitron.user.matomoCustomJSPath = '#{options["matomocloud"]["customJSPath"]}';"
+          script += "(tarteaucitron.job = tarteaucitron.job || []).push('matomocloud');"
+        end
+
         if options["facebook"]
           script += "(tarteaucitron.job = tarteaucitron.job || []).push('facebook');"
         end
@@ -82,7 +89,7 @@ module Tarteaucitron
           script += "(tarteaucitron.job = tarteaucitron.job || []).push('typekit');"
         end
 
-        result += content_tag("script", script.html_safe)
+        result += content_tag("script", script.html_safe, data: { turbo_track: :reload }, defer: true)
 
         result.html_safe
       end
